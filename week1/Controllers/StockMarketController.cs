@@ -87,18 +87,67 @@ namespace week1.Controllers
         }
 
         [HttpPut("UpdateStock")]
-        public IActionResult UpdateStock(int id,string name ,double value,double price)
+        public IActionResult UpdateStock(int id, string name, double value, double price)
         {
-            var stockList = StockList().Where(x => x.Id == id).FirstOrDefault();
-            string oriStock = $"Old Data ==> Id : {stockList.Id}, Name : {stockList.Name}, Value {stockList.Value}, Price : {stockList.Price}";
-            stockList.Id =  id;
-            stockList.Name = name;
-            stockList.Value = value;
-            stockList.Price = price;
-            string changeStock = $"{oriStock} {Environment.NewLine} " + $"Update Data ==> Id : {stockList.Id}, Name : {stockList.Name}, Value {stockList.Value}, Price : {stockList.Price}";
-    
-            
-            return Ok(changeStock);
+            if (id == 0 && name == null && value == 0 && price == 0)
+            {
+                return Ok("All value must not be null");
+            }
+            else
+            {
+                var stockList = StockList().Where(x => x.Id == id).FirstOrDefault();
+                if (stockList == null)
+                {
+                    return Ok("Not found this Id");
+                }
+                else
+                {
+                    string oriStock = $"Old Data ==> Id : {stockList.Id}, Name : {stockList.Name}, Value {stockList.Value}, Price : {stockList.Price}";
+                    bool checkedChange = false;
+                    if (stockList.Id != id)
+                    {
+                        stockList.Id = id;
+                        checkedChange = true;
+                    }
+                    if (stockList.Name != name)
+                    {
+                        if (name != null)
+                        {
+                            stockList.Name = name;
+                            checkedChange = true;
+                        }
+                    }
+                    if (stockList.Value != value)
+                    {
+                        if (value != 0)
+                        {
+                            checkedChange = true;
+                            stockList.Value = value;
+                        }
+                    }
+                    if (stockList.Price != price && price != 0)
+                    {
+                        if (price != 0)
+                        {
+                            checkedChange = true;
+                            stockList.Price = price;
+                        }
+                    }
+                    if (checkedChange)
+                    {
+                        oriStock += $"{Environment.NewLine} Change Successfully";
+                    }
+                    else
+                    {
+                        oriStock += $"{Environment.NewLine} Nothing changed";
+
+                    }
+                    string changeStock = $"{oriStock} {Environment.NewLine} " + $"Update Data ==> Id : {stockList.Id}, Name : {stockList.Name}, Value {stockList.Value}, Price : {stockList.Price}";
+                    return Ok(changeStock);
+                }
+
+            }
+
 
         }
 
