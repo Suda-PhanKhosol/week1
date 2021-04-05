@@ -93,3 +93,95 @@ System.IO.IOException: Failed to bind to address https://127.0.0.1:5001: address
    at Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions.Run(IHost host)
    at week1.Program.Main(String[] args) in D:\Training\Junior_1\week1\week1\Program.cs:line 28
 2021-04-05 09:08:46.163 +07:00 [INF] Starting web host
+2021-04-05 14:25:01.950 +07:00 [INF] Starting web host
+2021-04-05 14:29:36.413 +07:00 [INF] Starting web host
+2021-04-05 14:34:28.293 +07:00 [INF] Starting web host
+2021-04-05 14:35:12.248 +07:00 [INF] Starting web host
+2021-04-05 14:35:53.554 +07:00 [INF] Starting web host
+2021-04-05 14:36:09.827 +07:00 [INF] Starting web host
+2021-04-05 14:36:48.972 +07:00 [INF] Starting web host
+2021-04-05 14:36:49.972 +07:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidCastException: The field of type System.Int32 must be a string, array or ICollection type.
+   at System.ComponentModel.DataAnnotations.MinLengthAttribute.IsValid(Object value)
+   at System.ComponentModel.DataAnnotations.ValidationAttribute.IsValid(Object value, ValidationContext validationContext)
+   at System.ComponentModel.DataAnnotations.ValidationAttribute.GetValidationResult(Object value, ValidationContext validationContext)
+   at Microsoft.AspNetCore.Mvc.DataAnnotations.DataAnnotationsModelValidator.Validate(ModelValidationContext validationContext)
+   at Microsoft.AspNetCore.Mvc.ModelBinding.Validation.ValidationVisitor.ValidateNode()
+   at Microsoft.AspNetCore.Mvc.ModelBinding.Validation.ValidationVisitor.VisitSimpleType()
+   at Microsoft.AspNetCore.Mvc.ModelBinding.Validation.ValidationVisitor.Visit(ModelMetadata metadata, String key, Object model)
+   at Microsoft.AspNetCore.Mvc.ModelBinding.Validation.ValidationVisitor.VisitChildren(IValidationStrategy strategy)
+   at Microsoft.AspNetCore.Mvc.ModelBinding.Validation.ValidationVisitor.VisitComplexType(IValidationStrategy defaultStrategy)
+   at Microsoft.AspNetCore.Mvc.ModelBinding.Validation.ValidationVisitor.Visit(ModelMetadata metadata, String key, Object model)
+   at Microsoft.AspNetCore.Mvc.ModelBinding.Validation.ValidationVisitor.Validate(ModelMetadata metadata, String key, Object model, Boolean alwaysValidateAtTopLevel)
+   at Microsoft.AspNetCore.Mvc.ModelBinding.ObjectModelValidator.Validate(ActionContext actionContext, ValidationStateDictionary validationState, String prefix, Object model, ModelMetadata metadata)
+   at Microsoft.AspNetCore.Mvc.ModelBinding.ParameterBinder.EnforceBindRequiredAndValidate(ObjectModelValidator baseObjectValidator, ActionContext actionContext, ParameterDescriptor parameter, ModelMetadata metadata, ModelBindingContext modelBindingContext, ModelBindingResult modelBindingResult)
+   at Microsoft.AspNetCore.Mvc.ModelBinding.ParameterBinder.BindModelAsync(ActionContext actionContext, IModelBinder modelBinder, IValueProvider valueProvider, ParameterDescriptor parameter, ModelMetadata metadata, Object value)
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerBinderDelegateProvider.<>c__DisplayClass0_0.<<CreateBinderDelegate>g__Bind|0>d.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|19_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.ResponseCaching.ResponseCachingMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2021-04-05 14:37:23.964 +07:00 [INF] Starting web host
+2021-04-05 14:37:54.761 +07:00 [INF] Starting web host
+2021-04-05 14:39:01.318 +07:00 [INF] Starting web host
+2021-04-05 14:39:31.756 +07:00 [INF] Starting web host
+2021-04-05 14:49:29.343 +07:00 [INF] Starting web host
+2021-04-05 14:52:23.340 +07:00 [INF] Starting web host
+2021-04-05 14:53:31.118 +07:00 [INF] Starting web host
+2021-04-05 14:57:55.052 +07:00 [INF] Starting web host
+2021-04-05 14:59:07.087 +07:00 [INF] Starting web host
+2021-04-05 15:03:37.875 +07:00 [INF] Starting web host
+2021-04-05 15:04:30.852 +07:00 [INF] Starting web host
+2021-04-05 15:05:57.025 +07:00 [INF] Starting web host
+2021-04-05 15:06:14.618 +07:00 [INF] Starting web host
+2021-04-05 15:06:26.257 +07:00 [INF] Starting web host
+2021-04-05 15:07:05.073 +07:00 [INF] Starting web host
+2021-04-05 15:08:29.737 +07:00 [INF] Starting web host
+2021-04-05 15:08:36.124 +07:00 [INF] Starting web host
+2021-04-05 15:09:24.532 +07:00 [INF] Starting web host
+2021-04-05 15:09:44.523 +07:00 [INF] Starting web host
+2021-04-05 15:09:59.526 +07:00 [INF] Starting web host
+2021-04-05 15:10:56.632 +07:00 [INF] Starting web host
+2021-04-05 15:12:42.415 +07:00 [ERR] An unhandled exception has occurred while executing the request.
+System.ArgumentNullException: Value cannot be null. (Parameter 'value')
+   at System.String.Contains(String value)
+   at week1.Controllers.BooksController.<>c__DisplayClass2_0.<SearchBook>b__0(Book w) in D:\Training\Git\week1\week1\Controllers\BooksController.cs:line 67
+   at System.Linq.Enumerable.WhereListIterator`1.ToList()
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at week1.Controllers.BooksController.SearchBook(String searchText) in D:\Training\Git\week1\week1\Controllers\BooksController.cs:line 67
+   at lambda_method(Closure , Object , Object[] )
+   at Microsoft.Extensions.Internal.ObjectMethodExecutor.Execute(Object target, Object[] parameters)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|19_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.ResponseCaching.ResponseCachingMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2021-04-05 15:13:14.045 +07:00 [INF] Starting web host
+2021-04-05 15:13:23.433 +07:00 [INF] Starting web host
+2021-04-05 15:13:43.557 +07:00 [INF] Starting web host
+2021-04-05 15:13:55.989 +07:00 [INF] Starting web host
+2021-04-05 15:15:08.844 +07:00 [INF] Starting web host
+2021-04-05 15:16:13.615 +07:00 [INF] Starting web host
+2021-04-05 15:27:12.733 +07:00 [INF] Starting web host
+2021-04-05 15:28:10.890 +07:00 [INF] Starting web host
+2021-04-05 15:28:34.087 +07:00 [INF] Starting web host
