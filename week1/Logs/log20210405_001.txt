@@ -185,3 +185,118 @@ System.ArgumentNullException: Value cannot be null. (Parameter 'value')
 2021-04-05 15:27:12.733 +07:00 [INF] Starting web host
 2021-04-05 15:28:10.890 +07:00 [INF] Starting web host
 2021-04-05 15:28:34.087 +07:00 [INF] Starting web host
+2021-04-05 16:03:21.198 +07:00 [INF] Starting web host
+2021-04-05 16:11:00.996 +07:00 [INF] Starting web host
+2021-04-05 16:11:58.979 +07:00 [INF] Starting web host
+2021-04-05 16:12:11.751 +07:00 [INF] Starting web host
+2021-04-05 16:13:37.182 +07:00 [INF] Starting web host
+2021-04-05 16:13:44.611 +07:00 [INF] Starting web host
+2021-04-05 16:14:54.130 +07:00 [INF] Starting web host
+2021-04-05 16:15:16.825 +07:00 [INF] Starting web host
+2021-04-05 16:16:09.389 +07:00 [INF] Starting web host
+2021-04-05 16:17:09.214 +07:00 [INF] Starting web host
+2021-04-05 16:17:25.725 +07:00 [INF] Starting web host
+2021-04-05 16:17:39.600 +07:00 [INF] Starting web host
+2021-04-05 16:17:43.641 +07:00 [INF] Starting web host
+2021-04-05 16:19:41.907 +07:00 [INF] Starting web host
+2021-04-05 16:22:27.855 +07:00 [INF] Starting web host
+2021-04-05 16:22:57.194 +07:00 [INF] Starting web host
+2021-04-05 16:23:30.240 +07:00 [INF] Starting web host
+2021-04-05 16:25:52.147 +07:00 [INF] Starting web host
+2021-04-05 16:25:58.579 +07:00 [INF] Starting web host
+2021-04-05 16:26:40.930 +07:00 [INF] Starting web host
+2021-04-05 16:27:27.921 +07:00 [INF] Starting web host
+2021-04-05 16:27:44.916 +07:00 [INF] Starting web host
+2021-04-05 16:28:15.393 +07:00 [INF] Starting web host
+2021-04-05 16:28:34.026 +07:00 [INF] Starting web host
+2021-04-05 16:30:24.450 +07:00 [INF] Starting web host
+2021-04-05 16:31:01.040 +07:00 [INF] Starting web host
+2021-04-05 16:31:59.757 +07:00 [INF] Starting web host
+2021-04-05 16:35:16.528 +07:00 [INF] Starting web host
+2021-04-05 16:37:19.533 +07:00 [INF] Starting web host
+2021-04-05 16:37:25.600 +07:00 [INF] Starting web host
+2021-04-05 16:37:29.805 +07:00 [INF] Starting web host
+2021-04-05 16:38:00.736 +07:00 [INF] Starting web host
+2021-04-05 16:38:07.991 +07:00 [INF] Starting web host
+2021-04-05 16:38:22.356 +07:00 [INF] Starting web host
+2021-04-05 16:38:26.548 +07:00 [INF] Starting web host
+2021-04-05 16:39:16.670 +07:00 [INF] Starting web host
+2021-04-05 16:40:14.852 +07:00 [INF] Starting web host
+2021-04-05 16:54:43.862 +07:00 [INF] Starting web host
+2021-04-05 16:56:41.680 +07:00 [INF] Starting web host
+2021-04-05 17:02:27.562 +07:00 [INF] Starting web host
+2021-04-05 19:02:02.996 +07:00 [INF] Starting web host
+2021-04-05 19:03:02.375 +07:00 [INF] Starting web host
+2021-04-05 19:03:43.327 +07:00 [INF] Starting web host
+2021-04-05 19:05:46.596 +07:00 [INF] Starting web host
+2021-04-05 19:11:11.237 +07:00 [INF] Starting web host
+2021-04-05 19:11:51.803 +07:00 [INF] Starting web host
+2021-04-05 19:12:48.741 +07:00 [INF] Starting web host
+2021-04-05 19:13:34.222 +07:00 [INF] Starting web host
+2021-04-05 19:13:56.409 +07:00 [INF] Starting web host
+2021-04-05 19:14:08.386 +07:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Sequence contains no elements
+   at System.Linq.ThrowHelper.ThrowNoElementsException()
+   at System.Linq.Enumerable.Min[TSource](IEnumerable`1 source, Func`2 selector)
+   at week1.Controllers.StockMarketController.SearchStokByName(String name) in D:\Training\Git\week1\week1\Controllers\StockMarketController.cs:line 43
+   at lambda_method(Closure , Object , Object[] )
+   at Microsoft.Extensions.Internal.ObjectMethodExecutor.Execute(Object target, Object[] parameters)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|19_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.ResponseCaching.ResponseCachingMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2021-04-05 19:16:39.240 +07:00 [INF] Starting web host
+2021-04-05 19:18:55.272 +07:00 [INF] Starting web host
+2021-04-05 19:19:13.965 +07:00 [INF] Starting web host
+2021-04-05 19:19:30.104 +07:00 [INF] Starting web host
+2021-04-05 19:22:18.352 +07:00 [INF] Starting web host
+2021-04-05 19:27:04.587 +07:00 [INF] Starting web host
+2021-04-05 19:32:50.904 +07:00 [INF] Starting web host
+2021-04-05 19:34:38.337 +07:00 [INF] Starting web host
+2021-04-05 19:35:56.540 +07:00 [INF] Starting web host
+2021-04-05 19:37:04.863 +07:00 [INF] Starting web host
+2021-04-05 19:38:51.690 +07:00 [INF] Starting web host
+2021-04-05 19:40:58.187 +07:00 [INF] Starting web host
+2021-04-05 19:41:11.949 +07:00 [INF] Starting web host
+2021-04-05 19:42:33.398 +07:00 [INF] Starting web host
+2021-04-05 19:47:33.805 +07:00 [INF] Starting web host
+2021-04-05 19:48:54.021 +07:00 [INF] Starting web host
+2021-04-05 19:51:20.414 +07:00 [INF] Starting web host
+2021-04-05 19:52:59.562 +07:00 [INF] Starting web host
+2021-04-05 19:54:59.280 +07:00 [INF] Starting web host
+2021-04-05 19:55:35.897 +07:00 [INF] Starting web host
+2021-04-05 19:57:00.146 +07:00 [INF] Starting web host
+2021-04-05 19:57:26.715 +07:00 [INF] Starting web host
+2021-04-05 19:59:12.768 +07:00 [INF] Starting web host
+2021-04-05 19:59:20.769 +07:00 [INF] Starting web host
+2021-04-05 20:00:43.746 +07:00 [INF] Starting web host
+2021-04-05 20:01:19.388 +07:00 [INF] Starting web host
+2021-04-05 20:02:23.943 +07:00 [INF] Starting web host
+2021-04-05 20:04:31.212 +07:00 [INF] Starting web host
+2021-04-05 20:04:41.344 +07:00 [INF] Starting web host
+2021-04-05 20:11:51.736 +07:00 [INF] Starting web host
+2021-04-05 20:14:39.701 +07:00 [INF] Starting web host
+2021-04-05 20:17:24.233 +07:00 [INF] Starting web host
+2021-04-05 20:21:14.318 +07:00 [INF] Starting web host
+2021-04-05 20:32:37.690 +07:00 [INF] Starting web host
+2021-04-05 20:39:33.289 +07:00 [INF] Starting web host
+2021-04-05 20:41:16.531 +07:00 [INF] Starting web host
+2021-04-05 20:41:46.025 +07:00 [INF] Starting web host
+2021-04-05 20:43:01.276 +07:00 [INF] Starting web host
+2021-04-05 20:47:13.207 +07:00 [INF] Starting web host
+2021-04-05 20:51:45.334 +07:00 [INF] Starting web host
+2021-04-05 20:53:40.167 +07:00 [INF] Starting web host
