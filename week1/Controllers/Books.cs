@@ -13,10 +13,17 @@ namespace week1.Controllers
             return Ok(result);
         }
 
- [HttpGet("Tests")]
+        [HttpGet("Tests")]
         public IActionResult Tests()
         {
             return Ok("result");
+        }
+
+        [HttpGet("Now")]
+        public IActionResult GetNow()
+        {
+            var result = DateTime.Now;
+            return Ok(result);
         }
 
         [HttpGet("News")]
@@ -49,24 +56,24 @@ namespace week1.Controllers
         public IActionResult ConvertCDates(string date)
         {
             //start,length
-            string d = date.Substring(0,2);
-            string m = date.Substring(3,2);
-            string y = date.Substring(6,4);
+            string d = date.Substring(0, 2);
+            string m = date.Substring(3, 2);
+            string y = date.Substring(6, 4);
             DateTime dt = new DateTime(Int32.Parse(y), Int32.Parse(m), Int32.Parse(d));
 
             return Ok(String.Format("{0:d MMMM  yyyy}", dt));
         }
 
-           [HttpPost("ConvertPDates")]
+        [HttpPost("ConvertPDates")]
         public IActionResult ConvertPDates(string date)
         {
             //start,length
-            string d = date.Substring(0,2);
-            string m = date.Substring(3,2);
-            string y = date.Substring(6,4);
+            string d = date.Substring(0, 2);
+            string m = date.Substring(3, 2);
+            string y = date.Substring(6, 4);
             int newY = Int32.Parse(y) - 543;
             DateTime dt = new DateTime(newY, Int32.Parse(m), Int32.Parse(d));
-    
+
             return Ok(String.Format("{0:d MMMM  yyyy}", dt) + newY);
         }
         [HttpPost("CalGrades")]
