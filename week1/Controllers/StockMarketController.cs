@@ -87,15 +87,15 @@ namespace week1.Controllers
         }
 
         [HttpPut("UpdateStock")]
-        public IActionResult UpdateStock(StockMarket updateStock)
+        public IActionResult UpdateStock(int id,string name ,double value,double price)
         {
-            var stockList = StockList().Where(x => x.Id == updateStock.Id).FirstOrDefault();
+            var stockList = StockList().Where(x => x.Id == id).FirstOrDefault();
             string oriStock = $"Old Data ==> Id : {stockList.Id}, Name : {stockList.Name}, Value {stockList.Value}, Price : {stockList.Price}";
-            stockList.Id = updateStock.Id;
-            stockList.Name = updateStock.Name;
-            stockList.Value = updateStock.Value;
-            stockList.Price = updateStock.Price;
-            string changeStock = $"{oriStock} {Environment.NewLine} " + $"Old Data ==> Id : {stockList.Id}, Name : {stockList.Name}, Value {stockList.Value}, Price : {stockList.Price}";
+            stockList.Id =  id;
+            stockList.Name = name;
+            stockList.Value = value;
+            stockList.Price = price;
+            string changeStock = $"{oriStock} {Environment.NewLine} " + $"Update Data ==> Id : {stockList.Id}, Name : {stockList.Name}, Value {stockList.Value}, Price : {stockList.Price}";
     
             
             return Ok(changeStock);
