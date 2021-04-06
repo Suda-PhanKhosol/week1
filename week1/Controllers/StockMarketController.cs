@@ -113,7 +113,7 @@ namespace week1.Controllers
                     {
                         if (name != null)
                         {
-                            stockList.Name = name;
+                            stockList.Name = name.ToUpper();
                             checkedChange = true;
                         }
                     }
