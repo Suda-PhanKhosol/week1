@@ -23,19 +23,37 @@ namespace week1.Controllers
             stockList.Add(new StockMarket() { Id = 8, Name = "BLAND", Price = 1.15 });
             return stockList;
         }
-        [HttpGet("GetAllStock")]
 
+        [HttpGet("GetAllStock")]
         public IActionResult GetAllStock()
         {
             var stockList = StockList();
             return Ok(stockList);
         }
 
+        [HttpGet("GetAllStockOrderDesPrice")]
+        public IActionResult GetAllStockOrderDesPrice()
+        {
+            var stockList = StockList().OrderByDescending(d => d.Price).Select(s => new { name = s.Name, price = s.Price });
+            var sum = stockList.Sum(s => s.price);
+            string strSum = String.Format("{0:F2}",sum);
+            var avg = stockList.Average(s => s.price);
+            string strAvg = String.Format("{0:F2}",avg);
+            string list = "";
+            foreach (var item in stockList)
+            {
+                list += $"Name : {item.name} , Price : {item.price} {Environment.NewLine}";
+
+            }
+            list += $"Total Price = {strSum} {Environment.NewLine} Average Price = {strAvg}";
+            return Ok(list);
+        }
+
+
         [HttpGet("SearchStokByName")]
         public IActionResult SearchStokByName(string name)
         {
             var stockList = StockList();
-
             var searchStock = stockList.Where(x => x.Name.Contains(name.ToUpper())).OrderBy(o => o.Id).ToList();
             if (searchStock.Count() != 0)
             {
@@ -63,6 +81,8 @@ namespace week1.Controllers
             }
 
         }
+
+
         [HttpPost("AddNewStock")]
         public IActionResult AddNewStock(StockMarket newItem)
         {
@@ -85,6 +105,7 @@ namespace week1.Controllers
             return Ok(calculatePrice);
 
         }
+
 
         [HttpPut("UpdateStock")]
         public IActionResult UpdateStock(int id, string name, double value, double price)
