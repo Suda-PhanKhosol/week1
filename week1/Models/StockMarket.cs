@@ -8,8 +8,8 @@ namespace week1.Models
         public int Id { get; set; }
 
         [Required(ErrorMessage = "Name is required")]
-         [MinLength(3)]
-         [MaxLength(15)]
+        //  [MinLength(3)]
+        //  [MaxLength(15)]
         [RegularExpression(@"^[0-9A-Z0-9]{3,15}", ErrorMessage = "Incorrect stock name.Example = 101ADs , 1DELTA05 , CPF505")]
 
         public string Name { get; set; }

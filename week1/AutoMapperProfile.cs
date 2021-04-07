@@ -19,6 +19,12 @@ namespace week1
             CreateMap<RoleDtoAdd, Role>()
                 .ForMember(x => x.Name, x => x.MapFrom(x => x.RoleName)); ;
             CreateMap<UserRole, UserRoleDto>();
+
+            //  CreateMap<ต้นทาง,ปลายทาง >
+            CreateMap<Customer, CustomerDTO_ToReturn>().ReverseMap();
+            CreateMap<Product , ProductDTO_ToReturn>().ReverseMap();
+            CreateMap<Order  , OrderDTO_ToReturn>().ReverseMap();
+
         }
     }
 }
