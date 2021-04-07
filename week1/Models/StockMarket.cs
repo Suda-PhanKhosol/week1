@@ -4,6 +4,7 @@ namespace week1.Models
 {
     public class StockMarket
     {
+        [Key]
         [Range(1, int.MaxValue)]
         public int Id { get; set; }
 

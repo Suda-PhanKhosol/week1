@@ -1,7 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
+using week1.Data;
+using week1.DTOs;
 using week1.Models;
 
 namespace week1.Controllers
@@ -10,87 +13,55 @@ namespace week1.Controllers
     [Route("api/[controller]")]
     public class BooksController : ControllerBase
     {
-        [HttpGet]
-        public IActionResult Get(string name)
+        private readonly AppDBContext _db;
+        private readonly IMapper _mapper;
+
+        public BooksController(AppDBContext db,IMapper mapper)
         {
-            var result = "Hello" + name;
-            return Ok(result);
+            this._db = db;
+            this._mapper = mapper;
         }
-
         [HttpGet("GetBooks")]
-        public IActionResult GetBooks(int count)
+        public IActionResult GetBooks()
         {
-            var bookListx = new List<Book>();
-
-            //shorthand
-            bookListx.Add(new Book() { Id = 1, Name = "Salmon", Price = 20, CreatedDate = DateTime.Now });
-            bookListx.Add(new Book() { Id = 2, Name = "Berger", Price = 20, CreatedDate = DateTime.Now });
-            bookListx.Add(new Book() { Id = 3, Name = "Salad", Price = 20, CreatedDate = DateTime.Now });
-            bookListx.Add(new Book() { Id = 4, Name = "Stake", Price = 20, CreatedDate = DateTime.Now });
-            bookListx.Add(new Book() { Id = 5, Name = "Mango", Price = 20, CreatedDate = DateTime.Now });
-            bookListx.Add(new Book() { Id = 6, Name = "Banan", Price = 20, CreatedDate = DateTime.Now });
-            bookListx.Add(new Book() { Id = 7, Name = "Orange", Price = 20, CreatedDate = DateTime.Now });
-            bookListx.Add(new Book() { Id = 8, Name = "Orange", Price = 20, CreatedDate = DateTime.Now });
-            bookListx.Add(new Book() { Id = 9, Name = "Orange", Price = 20, CreatedDate = DateTime.Now });
-
-
-            //1. เก็บไว้ก่อน
-            var baconBook = new Book()
-            {
-                Id = 10,
-                Name = "Bacon",
-                Price = 20,
-                CreatedDate = DateTime.Now
-            };
-            //2. Add เข้า
-            bookListx.Add(baconBook);
-
-            return Ok(bookListx);
+            var bookListx = _db.Books.ToList();
+            return Ok(_mapper.Map<List<BookDTO_ToReturnAddBook>>(bookListx));
         }
 
         [HttpGet("SearchBook")]
         public IActionResult SearchBook(string searchText)
         {
-            var bookListx = new List<Book>();
-
-            bookListx.Add(new Book() { Id = 1, Name = "Salmon", Price = 20, CreatedDate = DateTime.Now });
-            bookListx.Add(new Book() { Id = 2, Name = "Berger", Price = 20, CreatedDate = DateTime.Now });
-            bookListx.Add(new Book() { Id = 3, Name = "Salad", Price = 20, CreatedDate = DateTime.Now });
-            bookListx.Add(new Book() { Id = 4, Name = "Stake", Price = 20, CreatedDate = DateTime.Now });
-            bookListx.Add(new Book() { Id = 5, Name = "Mango", Price = 20, CreatedDate = DateTime.Now });
-            bookListx.Add(new Book() { Id = 6, Name = "Banan", Price = 20, CreatedDate = DateTime.Now });
-            bookListx.Add(new Book() { Id = 7, Name = "Orange", Price = 20, CreatedDate = DateTime.Now });
-            bookListx.Add(new Book() { Id = 8, Name = "Orange", Price = 20, CreatedDate = DateTime.Now });
-            bookListx.Add(new Book() { Id = 9, Name = "Orange", Price = 20, CreatedDate = DateTime.Now });
-            bookListx.Add(new Book() { Id = 10, Name = "Tomato", Price = 20, CreatedDate = DateTime.Now });
+            var bookListx = _db.Books.ToList();
             //search SQL Like use Tolist because multi object
             var searchResult = bookListx.Where(x => x.Name.Contains(searchText)).ToList();
 
             //search SQL Like use First เอาตัวแรก
             var searchResultFirst = bookListx.Where(x => x.Name.Contains(searchText)).First();
 
-            return Ok(searchResultFirst);
+            return Ok(_mapper.Map<List<BookDTO_ToReturnAddBook>>(searchResult));
         }
-
-        [HttpPost("PostFromModel")]
-        public IActionResult PostFromModel(Book input)
+        [HttpPost("AddBook")]
+        public IActionResult PostFromModel(BookDTO_ToCreate input)
         {
-            var result = input;
+            var book = new Book();
+            book.Name = input.Name;
+            book.Price = input.Price;
+            book.CreatedDate = DateTime.Now;
+            _db.Add(book);
+            _db.SaveChanges();
+            return Ok(_mapper.Map<BookDTO_ToReturnAddBook>(book));
+        }
+        [HttpGet("GetBookByName")]
+        public IActionResult GetBookByName(string name)
+        {
+            var result = _db.Books.Where(x => x.Name.Contains(name)).ToList();
             return Ok(result);
         }
 
-        [HttpGet("Tests")]
-        public IActionResult Tests()
-        {
-            return Ok("result");
-        }
 
-        [HttpGet("Now")]
-        public IActionResult GetNow()
-        {
-            var result = DateTime.Now;
-            return Ok(result);
-        }
+
+
+
 
         [HttpGet("News")]
         public IActionResult GetNews(string name)

@@ -33,10 +33,17 @@ namespace week1.Data
                });
         }
 
+//ครั้งแรกกที่มีอยู่แล้ว
         public DbSet<User> Users { get; set; }
 
         public DbSet<Role> Roles { get; set; }
 
         public DbSet<UserRole> UserRoles { get; set; }
+//ตัวที่ต้องการเพิ่มเข้าไปป
+        public DbSet<Book> Books { get; set; }
+        public DbSet<Customer> Customers { get; set; }
+        public DbSet<Order> Orders { get; set; }
+        public DbSet<Product> Products { get; set; }
+        public DbSet<StockMarket> Stockmarkets { get; set; }
     }
 }

@@ -1,13 +1,10 @@
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
-namespace week1.Models
+namespace week1.DTOs
 {
-    [Table("Customer", Schema = "sale")]
-
-    public class Customer
+    public class CustomerDTO_ToCreate
     {
-        [Key]
+     
         public int Id { get; set; }
 
         [Required]

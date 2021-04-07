@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using week1.Data;
 
 namespace week1.Migrations
 {
     [DbContext(typeof(AppDBContext))]
-    partial class AppDBContextModelSnapshot : ModelSnapshot
+    [Migration("20210407040917_create_customer")]
+    partial class create_customer
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -38,7 +40,7 @@ namespace week1.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Book");
+                    b.ToTable("Books");
                 });
 
             modelBuilder.Entity("week1.Models.Customer", b =>
@@ -74,70 +76,6 @@ namespace week1.Migrations
                     b.ToTable("Customer","sale");
                 });
 
-            modelBuilder.Entity("week1.Models.Order", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<DateTime>("OrderDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("PayType")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(10)")
-                        .HasMaxLength(10);
-
-                    b.Property<int>("ProductId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("TotalItem")
-                        .HasColumnType("int");
-
-                    b.Property<double>("TotalPrice")
-                        .HasColumnType("float");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Orders");
-                });
-
-            modelBuilder.Entity("week1.Models.Product", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("CodeType")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(10)")
-                        .HasMaxLength(10);
-
-                    b.Property<string>("Descr")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(100)")
-                        .HasMaxLength(100);
-
-                    b.Property<string>("NameItem")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(10)")
-                        .HasMaxLength(10);
-
-                    b.Property<int?>("OrderId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Price")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("OrderId");
-
-                    b.ToTable("Products");
-                });
-
             modelBuilder.Entity("week1.Models.Role", b =>
                 {
                     b.Property<Guid>("Id")
@@ -156,46 +94,24 @@ namespace week1.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("1297926c-ba7b-4f84-be58-77047328b428"),
+                            Id = new Guid("89acb69a-3d4c-40b1-8556-c7196d07fd18"),
                             Name = "user"
                         },
                         new
                         {
-                            Id = new Guid("adb86caf-8e4c-4db7-8ae7-28871eeb9a48"),
+                            Id = new Guid("608bdb54-dc04-4b9e-a8c5-5cea9c07c302"),
                             Name = "Manager"
                         },
                         new
                         {
-                            Id = new Guid("f8b19466-92bb-4569-be21-071956b375bb"),
+                            Id = new Guid("50a6abee-995f-4d92-a187-f28a752024f3"),
                             Name = "Admin"
                         },
                         new
                         {
-                            Id = new Guid("6648aebb-1c63-46bd-8e18-024a61df4fa4"),
+                            Id = new Guid("09ac1040-dbbe-443b-895d-e20556a94462"),
                             Name = "Developer"
                         });
-                });
-
-            modelBuilder.Entity("week1.Models.StockMarket", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<double>("Price")
-                        .HasColumnType("float");
-
-                    b.Property<double>("Value")
-                        .HasColumnType("float");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Stockmarkets");
                 });
 
             modelBuilder.Entity("week1.Models.User", b =>
@@ -235,13 +151,6 @@ namespace week1.Migrations
                     b.HasIndex("RoleId");
 
                     b.ToTable("UserRole","auth");
-                });
-
-            modelBuilder.Entity("week1.Models.Product", b =>
-                {
-                    b.HasOne("week1.Models.Order", null)
-                        .WithMany("ProductDetail")
-                        .HasForeignKey("OrderId");
                 });
 
             modelBuilder.Entity("week1.Models.UserRole", b =>
