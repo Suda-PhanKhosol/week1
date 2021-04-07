@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using week1.DTOs;
@@ -30,6 +31,14 @@ namespace week1.Controllers
         [HttpGet("GetProduct")]
         public IActionResult GetProduct(){
             var result = _mapper.Map<List<ProductDTO_ToReturn>>(productList);
+            return Ok(result);
+        }
+
+          [HttpGet("{id}")]
+        public IActionResult GetOrderByOrderId(int id)
+        {
+            var product = productList.Where(x => x.Id == id).SingleOrDefault();
+            var result = _mapper.Map<ProductDTO_ToReturn>(product);
             return Ok(result);
         }
     }
