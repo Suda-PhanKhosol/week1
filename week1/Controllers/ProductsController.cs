@@ -37,9 +37,13 @@ namespace week1.Controllers
           [HttpGet("{id}")]
         public IActionResult GetOrderByOrderId(int id)
         {
+            //ถ้า ไม่มี id ใน DTO เราก็สามารถหาได้ใน Model ได้อยู๋แล้ว
             var product = productList.Where(x => x.Id == id).SingleOrDefault();
+            //รับและส่งค่าเท่านั้น
             var result = _mapper.Map<ProductDTO_ToReturn>(product);
             return Ok(result);
         }
+
+        // รับเป็น DTO ได้
     }
 }

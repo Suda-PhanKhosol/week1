@@ -168,5 +168,10 @@ namespace week1.Controllers
             return Ok(result);
         }
 
+        [HttpGet("FindByDTOOreder")]
+        public IActionResult FindByDTOOreder(FindOrderDTO_ToReturn findOrderDTO_ToReturn){
+            return Ok();
+        }
+
     }
 }

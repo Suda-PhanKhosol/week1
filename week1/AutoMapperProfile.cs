@@ -22,8 +22,13 @@ namespace week1
 
             //  CreateMap<ต้นทาง,ปลายทาง >
             CreateMap<Customer, CustomerDTO_ToReturn>().ReverseMap();
-            CreateMap<Product , ProductDTO_ToReturn>().ReverseMap();
-            CreateMap<Order  , OrderDTO_ToReturn>().ReverseMap();
+            CreateMap<Product, ProductDTO_ToReturn>().ReverseMap();
+            CreateMap<Product, ProductDTO_ToUseWithOrder>().ReverseMap();
+            CreateMap<Order, FindOrderDTO_ToReturn>().ReverseMap();
+            CreateMap<Order, ProductDTO_ToUseWithOrder>().ReverseMap();
+            CreateMap<Order, OrderDTO_ToReturn>().ReverseMap();
+
+
 
         }
     }

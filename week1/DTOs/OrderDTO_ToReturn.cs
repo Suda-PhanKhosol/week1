@@ -11,6 +11,6 @@ namespace week1.DTOs
         public int TotalItem { get; set; }
         public double TotalPrice { get; set; }
         public DateTime OrderDate { get; set; }
-        public List<ProductDTO_ToReturn> ProductDetail { get; set; }
+        public List<ProductDTO_ToUseWithOrder> ProductDetail { get; set; }
     }
 }
