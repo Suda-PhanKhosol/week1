@@ -24,7 +24,7 @@ namespace week1.Controllers
             this._mapper = mapper;
             this._db = db;
         }
-        [HttpGet("GetOrder")]
+        [HttpGet("GetOrderT")]
         public IActionResult GetProduct()
         {
             var result = _mapper.Map<List<OrderDTO_ToReturn>>(_db.Orders.ToList());
